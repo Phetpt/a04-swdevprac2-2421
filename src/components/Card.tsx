@@ -1,16 +1,12 @@
 import Image from "next/image";
-import styles from "./card.module.css"
 
-export default function EventCard () {
+export default function EventCard ({venueName, imgSrc} : {venueName:string, imgSrc:string}) {
   return(
-    <div className={styles.card}>
-      <div className={styles.cardimg}>
-        <Image src={'/img/Wedding.jpg'} alt="Card" fill={true} objectFit='cover'/>
+    <div className='w-1/5 h-[300px] rounded-lg shadow-lg '>
+      <div className='w-full h-[70%] relative rounded-t-lg'>
+        <Image src={imgSrc} alt="Card" fill={true} className='object-cover rounded-t-lg'/>
       </div>
-      <div className={styles.cardtext}>
-        <h3>The Bloom Pavilion</h3>
-        <p className={styles.subtext}>A breathtaking outdoor banquet where love blossoms amidst nature and unforgettable memories are made.</p>
-      </div>
+      <div className='w-full h-[30%] p-2.5'>{venueName}</div>
     </div>
   )
 }
